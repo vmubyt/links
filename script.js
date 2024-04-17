@@ -1,8 +1,14 @@
 const canvas = document.querySelector('canvas'),
-      context = canvas.getContext('2d');
+    context = canvas.getContext('2d');
 
-let width = canvas.width = window.innerWidth;
-let height = canvas.height = window.innerHeight;
+let width, height;
+
+function setSize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+}
+
+setSize();
 
 const STAR_COLOR = '#fff'; // Warna bintang putih
 const STAR_SIZE = 2;
@@ -48,30 +54,18 @@ function renderStars() {
     context.translate(-width / 2, -height / 2);
 }
 
-function renderStars() {
-    context.clearRect(0, 0, width, height);
-    context.translate(width / 2, height / 2);
-    stars.forEach(star => {
-        let scale = STAR_SIZE * (1 - star.z / STAR_MAX_SCALE);
-        context.beginPath();
-        context.arc(star.x / star.z, star.y / star.z, scale, 0, Math.PI * 2);
-        context.fillStyle = STAR_COLOR;
-        context.fill();
-    });
-    context.translate(-width / 2, -height / 2);
-}
-
 function step() {
     updateStars();
     renderStars();
     requestAnimationFrame(step);
 }
 
-window.onresize = function() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
+function handleResize() {
+    setSize();
     generateStars();
-};
+}
+
+window.addEventListener('resize', handleResize);
 
 generateStars();
 step();
