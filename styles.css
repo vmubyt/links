@@ -1,52 +1,124 @@
-body {
-    /* Membuat gradasi warna untuk latar belakang halaman */
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to top, #03162a, #000000);
+/* Reset CSS */
+body, index {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling */
+body {
+    /* Gradient background */
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to top, #03162a, #000000);
     overflow: hidden;
+    color: #FFF;
 }
 
 canvas {
-    /* Membuat gradasi warna untuk latar belakang canvas */
+    /* Gradient background for canvas */
     background: linear-gradient(to top, #03162a, #000000);
-    display: block; /* Menghilangkan margin bawaan */
+    display: block;
 }
 
-/* Tambahkan ini ke bagian bawah file html.css Anda */
-body, index {
+.animate-fade-in {
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fade-out {
+    animation: fadeOut 1s;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.social-media {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; /* Menambahkan ini untuk memastikan semua konten terpusat */
 }
 
+/* Container styling */
 .container {
-    position: absolute; /* Membuat container tombol tidak mempengaruhi layout canvas */
+    position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 10; /* Pastikan tombol muncul di atas canvas */
+    z-index: 10;
+    max-width: 90%; /* Max width for the container */
 }
 
+/* Button styling */
 .button {
-    display: inline-block;
-    margin: 5px;
-    padding: 7px 200px;
-    border: 2.5px solid #FFF; /* Border putih */
-    color: #FFF; /* Warna teks putih */
+    margin: 7px;
+    padding: 7px 200px; /* Padding for the buttons */
+    border: 2.5px solid #FFF;
+    color: #FFF;
+    font-size: 16px;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
+    background-color: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%; /* Set width to 100% to make buttons fill the container */
+    max-width: 300px; /* Max width for buttons */
     text-align: center;
-    background-color: transparent; /* Membuat latar belakang transparan */
-    border-radius: 10px; /* Menambahkan lengkungan pada tombol */
-    width: 200px; /* Menetapkan lebar tetap untuk tombol */
+    transition: background-color 0.3s ease;
 }
 
 .button:hover {
-    background-color: #FFF; /* Warna latar saat hover */
-    color: #000; /* Warna teks saat hover */
+    background-color: #FFF;
+    color: #000;
+}
+
+/* Media queries for different devices */
+@media only screen and (max-width: 600px) {
+    /* Media query for smartphones */
+    .container {
+        max-width: 100%; /* Change container max-width to 100% for smartphones */
+    }
+
+    .button {
+        padding: 7px 30px; /* Adjust button padding for smaller screens */
+        max-width: none; /* Remove max-width for buttons on smartphones */
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    /* Media query for iPads and smaller laptops */
+    .container {
+        max-width: 80%; /* Change container max-width for iPads and smaller laptops */
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+    /* Media query for larger laptops and desktops */
+    .container {
+        max-width: 60%; /* Change container max-width for larger laptops and desktops */
+    }
 }
