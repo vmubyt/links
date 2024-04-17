@@ -8,15 +8,33 @@
     <link href="img/favicon.ico" rel="icon">
     <!-- Import Poppins font dari Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Import animate.css untuk animasi -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
+    <div class="overlay"></div>
     <canvas id="meteorShower"></canvas>
     <div class="container">
-        <a href="URL_CHANNEL_YOUTUBE" class="button">Channel YouTube</a>
-        <a href="URL_SERVER_DISCORD" class="button">Server Discord</a>
-        <a href="URL_TWITTER" class="button">Twitter / X</a>
-        <a href="URL_LINKTREE" class="button">Linktr.ee/SERVER48</a>
+        <p class="social-media">✨Social Media✨</p>
+        <a href="https://www.youtube.com/@SERVER48_ID/" target="_blank" class="button">Channel YouTube</a>
+        <a href="https://discord.com/invite/289xFUnpyd" target="_blank" class="button">Server Discord</a>
+        <a href="https://twitter.com/SERVER48_ID" target="_blank" class="button">Twitter / X</a>
+        <a href="https://linktr.ee/server48" target="_blank" class="button">Linktr.ee/SERVER48</a>
     </div>
+    <script>
+        window.onload = function() {
+            var buttons = document.querySelectorAll('.button'); // Pilih semua elemen dengan kelas 'button'
+
+            buttons.forEach(button => {
+                button.classList.add('animate-fade-out'); // Tambahkan kelas 'animate-fade-out' ke setiap elemen tombol
+
+                setTimeout(function() {
+                    button.classList.remove('animate-fade-out'); // Hapus kelas 'animate-fade-out' setelah selesai animasi fade out
+                    button.classList.add('animate-fade-in'); // Tambahkan kelas 'animate-fade-in' setelah animasi fade out selesai
+                }, 100); // Sesuaikan dengan durasi animasi fade out (dalam milidetik)
+            });
+        };
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
