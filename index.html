@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="60"> <!-- Refresh halaman setiap 60 detik -->
     <title>SERVER48</title>
     <link rel="stylesheet" href="styles.css">
     <link href="img/favicon.ico" rel="icon">
@@ -35,6 +36,20 @@
                 }, 100); // Sesuaikan dengan durasi animasi fade out (dalam milidetik)
             });
         };
+
+        var startY;
+        var endY;
+        
+        window.addEventListener('touchstart', function(e) {
+            startY = e.touches[0].clientY;
+        }, false);
+        
+        window.addEventListener('touchend', function(e) {
+            endY = e.changedTouches[0].clientY;
+            if ((startY - endY) > 100) {
+                location.reload(); // Refresh halaman jika pergerakan tarik ke bawah lebih dari 100px
+            }
+        }, false);
     </script>
     <script src="script.js"></script>
 </body>
