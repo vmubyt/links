@@ -46,7 +46,7 @@
         
         window.addEventListener('touchend', function(e) {
             endY = e.changedTouches[0].clientY;
-            if ((startY - endY) > 100) {
+            if ((endY - startY) > 100) {
                 location.reload(); // Refresh halaman jika pergerakan tarik ke bawah lebih dari 100px
             }
         }, false);
