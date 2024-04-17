@@ -122,3 +122,18 @@ canvas {
         max-width: 60%; /* Change container max-width for larger laptops and desktops */
     }
 }
+
+@keyframes fade {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.footer {
+    position: fixed;
+    bottom: 20px; /* Menyesuaikan jarak dari bawah */
+    width: 100%;
+    text-align: center;
+    animation: fade 3s infinite; /* Sesuaikan durasi animasi dan looping di sini */
+    font-size: 14px; /* Mengurangi ukuran tulisan */
+}
